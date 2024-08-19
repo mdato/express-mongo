@@ -1,0 +1,24 @@
+<div class="mb-3">
+    <label for="file" class="form-label">Cover Image</label>
+    <input type="file" class="form-control" name="coverImage">
+</div>
+
+<div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" name="title" placeholder="enter album title"
+    value="<%= album.title %>"
+    >
+</div>
+<div class="mb-3">
+    <label for="artist" class="form-label">Artist</label>
+    <input type="text" class="form-control" name="artist" placeholder="enter album artist"
+    value="<%= album.artist %>">
+</div>
+<div class="mb-3">
+    <label for="price" class="form-label">Price</label>
+    <input type="text" class="form-control" name="price" placeholder="enter album price" value="<%= album.price %>">
+</div>
+<div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea class="form-control" name="description" rows="3"> <%= album.description %></textarea>
+</div>

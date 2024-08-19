@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+    <title>Discography</title>
+    <style>
+        .album-image {
+            width: 60%; /* Ajusta el ancho de la imagen al 70% del contenedor */
+            height: auto; /* Mantiene la proporción de la imagen */
+            margin: 0 auto; /* Centra la imagen horizontalmente */
+            display: block; /* Asegura que la imagen se comporte como un bloque */
+        }
+        .container {
+            padding-left: 15px; /* Agrega un poco de padding para que no esté pegado al borde */
+            padding-right: 15px; /* Agrega un poco de padding para que no esté pegado al borde */
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('./partials/Navbar.ejs') %>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6 text-center">
+                <img src="<%= album.coverImage %>" class="album-image mb-2 img-fluid" alt="Cover Image" />
+                <h3><%= album.title %></h3>
+                <h5><%= album.artist %></h5>
+                <h6><%= album.description %></h6>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/script.ejs') %>
+</body>
+
+</html>

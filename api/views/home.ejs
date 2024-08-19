@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+    <title>Discography</title>
+    <style>
+        .card-img-top {
+            object-fit: cover;
+            width: 50%; /* Ajusta el ancho de la imagen al 50% del contenedor de la tarjeta */
+            height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+            margin: 0 auto; /* Centra la imagen horizontalmente */
+            display: block; /* Asegura que la imagen se comporte como un bloque */
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 8px; /* Añade un radio de borde para un diseño más suave */
+            overflow: hidden; /* Asegura que el contenido no se desborde del borde redondeado */
+            text-align: center; /* Centra el texto dentro de la tarjeta */
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        .btn-sm img {
+            vertical-align: middle; /* Alinea verticalmente los íconos dentro del botón */
+        }
+        .card-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('./partials/Navbar.ejs') %>
+
+    <div class="container mt-5">
+        <div class="row">
+            <% album.forEach(item => { %>
+                <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <img src="<%= item.coverImage %>" class="card-img-top" alt="Cover Image" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title"><%= item.title %></h5>
+                            <div class="card-actions">
+                                <form action="/album/<%= item._id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">
+                                        <img src="/borrar.png" alt="Delete" width="20px" height="20px" />
+                                    </button>
+                                </form>
+                                <a href="/album/<%= item._id %>" class="btn btn-secondary btn-sm">
+                                    More Details
+                                </a>
+                                <a href="/edit/<%= item._id %>" class="btn btn-outline-primary btn-sm">
+                                    <img src="/editar.png" alt="Edit" width="20px" height="20px" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <%- include('./partials/script.ejs') %>
+</body>
+
+</html>
